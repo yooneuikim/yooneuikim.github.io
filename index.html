@@ -4,165 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yooneui Kim — Political Science</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#171311;
-    --ink-soft:#2A2422;
-    --paper:#FFFFFF;
-    --paper-warm:#F6F4F2;
-    --gold:#A11D1D;
-    --gold-soft:#D98B8B;
-    --slate:#5C5754;
-    --line:#E3DFDA;
-    --max:920px;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    font-size:17px;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{font-family:'Source Serif 4',serif; font-weight:600; color:var(--ink);}
-  a{color:inherit;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
-
-  /* nav */
-  nav{
-    position:sticky; top:0; z-index:50;
-    background:#A11D1D;
-    border-bottom:1px solid #8a1818;
-  }
-  nav .brand{font-family:'Source Serif 4',serif; font-weight:600; font-size:1.05rem; letter-spacing:0.01em; color:#FFFFFF;}
-  nav ul{display:flex; gap:28px; list-style:none;}
-  nav a{font-size:0.88rem; text-decoration:none; color:rgba(255,255,255,0.8); letter-spacing:0.02em;}
-  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:62px;}
-  nav a:hover{color:#FFFFFF;}
-  .nav-toggle{display:none;}
-
-  /* hero */
-  .hero{position:relative; overflow:hidden; padding:96px 0 80px; border-bottom:1px solid var(--line);}
-  .hero-net{position:absolute; top:-40px; right:-60px; width:560px; opacity:0.16; pointer-events:none;}
-  .hero .wrap{position:relative; z-index:1;}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace; font-size:0.74rem; letter-spacing:0.12em;
-    text-transform:uppercase; color:var(--gold); margin-bottom:18px; display:block;
-  }
-  .hero h1{font-size:clamp(2.2rem,5vw,3.2rem); line-height:1.1; max-width:680px;}
-  .hero .role{font-size:1.05rem; color:var(--slate); margin-top:16px; max-width:560px;}
-  .hero .thesis{
-    margin-top:32px; max-width:600px; font-size:1.08rem; color:var(--ink-soft);
-    border-left:2px solid var(--gold-soft); padding-left:18px;
-  }
-  .hero-links{margin-top:36px; display:flex; gap:14px; flex-wrap:wrap;}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:11px 20px; border-radius:2px; font-size:0.88rem; font-weight:500;
-    text-decoration:none; border:1px solid var(--ink); transition:all 0.15s ease;
-  }
-  .btn-primary{background:var(--ink); color:var(--paper);}
-  .btn-primary:hover{background:var(--ink-soft);}
-  .btn-ghost{background:transparent; color:var(--ink);}
-  .btn-ghost:hover{background:var(--paper-warm);}
-
-  /* sections */
-  section{padding:72px 0;}
-  section.alt{background:var(--paper-warm); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .section-head{margin-bottom:40px; max-width:640px;}
-  .section-head .eyebrow{margin-bottom:10px;}
-  .section-head h2{font-size:1.7rem;}
-  .section-head p{color:var(--slate); margin-top:10px; font-size:0.97rem;}
-
-  /* about */
-  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:56px; align-items:start;}
-  .about-grid p{margin-bottom:16px; color:var(--ink-soft);}
-  .fields{list-style:none;}
-  .fields li{padding:14px 0; border-bottom:1px solid var(--line);}
-  .fields li:first-child{border-top:1px solid var(--line);}
-  .fields .num{font-family:'JetBrains Mono',monospace; color:var(--gold); font-size:0.8rem; margin-right:10px;}
-  .fields .label{font-weight:500; display:block; margin-bottom:4px;}
-  .fields .sub{color:var(--slate); font-size:0.88rem;}
-
-  /* publications */
-  .pub-list{counter-reset:pub;}
-  .pub{
-    counter-increment:pub; position:relative; padding:20px 0 20px 48px;
-    border-bottom:1px solid var(--line);
-  }
-  .pub:first-child{border-top:1px solid var(--line);}
-  .pub::before{
-    content:counter(pub, decimal-leading-zero);
-    position:absolute; left:0; top:20px;
-    font-family:'JetBrains Mono',monospace; color:var(--gold); font-size:0.82rem;
-  }
-  .pub .status{
-    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.7rem;
-    color:var(--slate); border:1px solid var(--line); padding:2px 7px; border-radius:2px;
-    margin-bottom:8px; letter-spacing:0.04em;
-  }
-  .pub-title{font-size:1.02rem; font-weight:500; line-height:1.4;}
-  .pub-venue{color:var(--slate); font-size:0.9rem; margin-top:5px;}
-  .pub-coauth{color:var(--slate); font-size:0.86rem; margin-top:3px; font-style:italic;}
-
-  .wp-list{margin-top:8px;}
-  .wp{padding:16px 0; border-bottom:1px solid var(--line);}
-  .wp:first-child{border-top:1px solid var(--line);}
-  .wp-title{font-weight:500;}
-  .wp-meta{color:var(--slate); font-size:0.86rem; margin-top:4px;}
-
-  /* teaching */
-  .teach-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:28px 48px;}
-  .teach-block h3{font-size:1rem; margin-bottom:14px; font-family:'Inter',sans-serif; font-weight:600;}
-  .teach-block ul{list-style:none;}
-  .teach-block li{padding:9px 0; border-bottom:1px dashed var(--line); font-size:0.93rem; display:flex; justify-content:space-between; gap:12px;}
-  .teach-block li span.years{color:var(--slate); font-size:0.84rem; font-family:'JetBrains Mono',monospace; white-space:nowrap;}
-
-  /* cv */
-  .cv-row{display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
-    border:1px solid var(--line); padding:28px 32px; background:var(--paper);}
-  .cv-row h3{font-size:1.15rem; margin-bottom:6px;}
-  .cv-row p{color:var(--slate); font-size:0.92rem;}
-  .stat-strip{display:flex; gap:40px; margin-top:36px; flex-wrap:wrap;}
-  .stat{}
-  .stat .n{font-family:'Source Serif 4',serif; font-size:2rem; color:var(--ink); font-weight:600;}
-  .stat .l{color:var(--slate); font-size:0.82rem; text-transform:uppercase; letter-spacing:0.06em; margin-top:2px;}
-
-  /* contact / footer */
-  footer{padding:64px 0 48px;}
-  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
-  .contact-grid h2{font-size:1.5rem; margin-bottom:14px;}
-  .contact-line{display:flex; gap:10px; padding:10px 0; border-bottom:1px solid var(--line); font-size:0.95rem;}
-  .contact-line .k{color:var(--slate); width:90px; flex-shrink:0; font-size:0.84rem; text-transform:uppercase; letter-spacing:0.04em; padding-top:2px;}
-  .affil-list{display:flex; flex-wrap:wrap; gap:8px;}
-  .affil-list span{font-size:0.8rem; color:var(--slate); border:1px solid var(--line); padding:5px 11px; border-radius:20px;}
-  .fineprint{margin-top:56px; padding-top:24px; border-top:1px solid var(--line); color:var(--slate); font-size:0.82rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
-
-  @media (max-width:760px){
-    nav ul{gap:16px;}
-    nav a{font-size:0.8rem;}
-    .about-grid, .teach-grid, .contact-grid{grid-template-columns:1fr;}
-    .hero-net{display:none;}
-    section{padding:52px 0;}
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <div class="brand">Yooneui Kim</div>
+    <a class="brand" href="index.html">Yooneui Kim</a>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#teaching">Teaching</a></li>
-      <li><a href="#cv">CV</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="cv.html">CV</a></li>
     </ul>
   </div>
 </nav>
@@ -199,14 +52,14 @@
     <p class="role">Assistant Professor — International Relations, Comparative Politics, and Political Methodology</p>
     <p class="thesis">I study why states cooperate on human rights and what makes that cooperation durable, combining network analysis, text analysis, and qualitative case research to trace how international institutions shape state behavior.</p>
     <div class="hero-links">
-      <a class="btn btn-primary" href="#cv">View CV</a>
-      <a class="btn btn-ghost" href="#research">Browse Publications</a>
+      <a class="btn btn-primary" href="cv.html">View CV</a>
+      <a class="btn btn-ghost" href="research.html">Browse Publications</a>
       <a class="btn btn-ghost" href="mailto:Yooneui.Kim@ttu.edu">Email</a>
     </div>
   </div>
 </header>
 
-<section id="about">
+<section>
   <div class="wrap about-grid">
     <div>
       <span class="eyebrow">About</span>
@@ -218,7 +71,7 @@
     <ul class="fields">
       <li>
         <span class="num">01</span><span class="label">International Relations</span>
-        <span class="sub">International institutions, human rights, global inequality and development, environmental cooperation, sustainability </span>
+        <span class="sub">Conflict and cooperation, international institutions, human rights, sustainability and environmental cooperation, global inequality and development</span>
       </li>
       <li>
         <span class="num">02</span><span class="label">Comparative Politics</span>
@@ -232,132 +85,18 @@
   </div>
 </section>
 
-<section id="research" class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Research</span>
-      <h2>Selected Publications</h2>
-      <p>Peer-reviewed work on international human rights institutions, compliance, and cooperation.</p>
-    </div>
-    <div class="pub-list">
-      <div class="pub">
-        <span class="status">2026</span>
-        <div class="pub-title"><a href="https://link.springer.com/article/10.1007/s11558-026-09619-5" target="_blank" style="color:inherit; text-decoration:underline;">State Promotion of Global Women's Rights in the Universal Periodic Review</a></div>
-        <div class="pub-venue">Review of International Organizations, 1–26</div>
-        <div class="pub-coauth">with Sara Mitchell and Nila Zarepour-Arizi</div>
-      </div>
-      <div class="pub">
-        <span class="status">2025</span>
-        <div class="pub-title">Procedural Compliance with International Human Rights Institutions: The Impact of the Universal Periodic Review on Human Rights Treaty Ratification</div>
-        <div class="pub-venue">Global Governance: A Review of Multilateralism and International Organizations, 31(3): 312–337</div>
-      </div>
-      <div class="pub">
-        <span class="status">2024</span>
-        <div class="pub-title">Interests Convergence in Global Human Rights Politics: Text Analysis of Universal Periodic Review of the UN Human Rights Council</div>
-        <div class="pub-venue">Journal of Language and Politics, 24(2): 235–258</div>
-      </div>
-      <div class="pub">
-        <span class="status">2023</span>
-        <div class="pub-title">A Network Analysis of Naming and Shaming in the Universal Periodic Review</div>
-        <div class="pub-venue">International Interactions, 49(3): 287–314</div>
-      </div>
-      <div class="pub">
-        <span class="status">2022</span>
-        <div class="pub-title">Political Leaders, Economic Hardship, and Foreign Aid Allocation</div>
-        <div class="pub-venue">Foreign Policy Analysis, 18(4)</div>
-        <div class="pub-coauth">with Kangwook Han and Sung Min Han</div>
-      </div>
-      <div class="pub">
-        <span class="status">2020</span>
-        <div class="pub-title">Competition, Aid, and Violence against Civilians</div>
-        <div class="pub-venue">International Interactions, 46(5): 696–723</div>
-        <div class="pub-coauth">with Elizabeth Menninga</div>
-      </div>
-    </div>
-
-    <div style="margin-top:48px;">
-      <h3 style="font-size:1.15rem; margin-bottom:8px;">Working Papers</h3>
-      <div class="wp-list">
-        <div class="wp">
-          <div class="wp-title">Women's Descriptive Representation and Foreign Direct Investment</div>
-          <div class="wp-meta">with Hoan La and Daehee Bak — revise and resubmit</div>
-        </div>
-        <div class="wp">
-          <div class="wp-title">Enduring Effects of Social Movements on Organizations: The US' Designation of Human Trafficking Countries</div>
-          <div class="wp-meta">with Hyunsik Chun</div>
-        </div>
-        <div class="wp">
-          <div class="wp-title">The Skeptical Public: Trust in the United Nations</div>
-          <div class="wp-meta">with Yuehong Cassandra Tai</div>
-        </div>
-        <div class="wp">
-          <div class="wp-title">When Disaster Strikes Home: Leaders' Disaster Experience and Environmental Cooperation</div>
-          <div class="wp-meta">with Sung Min Han and Kangwook Han</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="teaching">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Teaching</span>
-      <h2>Courses Taught</h2>
-      <p>Undergraduate and graduate courses across international relations, comparative politics, and methods.</p>
-    </div>
-    <div class="teach-grid">
-      <div class="teach-block">
-        <h3>Texas Tech University</h3>
-        <ul>
-          <li>Transnational Issues <span class="years">2022–2025</span></li>
-          <li>Data Analysis (Graduate) <span class="years">2022–2025</span></li>
-          <li>International Politics <span class="years">2023, 2025–2026</span></li>
-          <li>American Government <span class="years">2026</span></li>
-        </ul>
-      </div>
-      <div class="teach-block">
-        <h3>Bentley University</h3>
-        <ul>
-          <li>International Relations <span class="years">2021–2022</span></li>
-          <li>Model United Nations <span class="years">2022</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="cv" class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Curriculum Vitae</span>
-      <h2>Full CV</h2>
-    </div>
-    <div class="cv-row">
-      <div>
-        <h3>Yooneui Kim — CV</h3>
-        <p>Updated January 2026 · PDF</p>
-      </div>
-      <a class="btn btn-primary" href="Kim_CV_Jan2026.pdf" target="_blank">Download CV ↓</a>
-    </div>
-  
-  </div>
-</section>
-
-<section id="contact">
+<footer>
   <div class="wrap contact-grid">
     <div>
       <h2>Contact</h2>
       <div class="contact-line"><span class="k">Email</span><span><a href="mailto:Yooneui.Kim@ttu.edu">Yooneui.Kim@ttu.edu</a></span></div>
-      <div class="contact-line"><span class="k">Office</span><span>113 Holden Hall, Boston and Akron Streets, Lubbock, TX 79409-1015</span></div>
+      <div class="contact-line"><span class="k">Office</span><span>113 Holden Hall, Lubbock, TX 79409</span></div>
       <div class="contact-line"><span class="k">Web</span><span><a href="https://yooneuikim.com" target="_blank">yooneuikim.com</a></span></div>
     </div>
     <div>
       <h2>Affiliations</h2>
       <div class="affil-list">
-        <span>APSA</span>
-        <span>ISA</span>
-        <span>MPSA</span>
+        <span>APSA</span><span>ISA</span><span>MPSA</span>
         <span>Korean Political Science Association</span>
         <span>Peace Science Society</span>
       </div>
@@ -367,7 +106,7 @@
       <span>Department of Political Science, Texas Tech University</span>
     </div>
   </div>
-</section>
+</footer>
 
 </body>
 </html>
